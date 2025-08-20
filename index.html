@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPressテーマ特化LP - ウタカタブログ</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@600;700&display=swap');
+
+        :root {
+            --primary-color: #2980b9; /* Darker Blue */
+            --secondary-color: #27ae60; /* Darker Green */
+            --text-color: #333;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 50px 40px;
+            margin: 40px auto;
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #2c3e50; /* Dark, strong color */
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Space between cards in a group */
+            margin-bottom: 40px; /* Space between card groups */
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: row; /* Horizontal layout for card content */
+            align-items: center;
+            padding: 20px 25px;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+
+        .card-content {
+            /* This class is now redundant as styles are on .card, but we'll clear it */
+            padding: 0;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            margin-right: 20px;
+            flex-grow: 1;
+            color: #333;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 25px; /* Space for the symbol */
+        }
+
+        .card-title::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary-color);
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .card-button {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 8px 25px; /* Adjusted padding for border */
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        .card:hover .card-button {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* About Blog Section */
+        .about-blog {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('スクリーンショット 2025-08-12 8.37.48.png');
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            padding: 60px;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        .profile-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 3px solid rgba(255, 255, 255, 0.9);
+        }
+        .about-blog h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+        }
+        .about-blog p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.9;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+        }
+        .about-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin-top: 40px; /* Add some more space from the text */
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .about-blog .btn {
+            padding: 12px 30px;
+            border-radius: 50px; /* Fully rounded pill shape */
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease-in-out;
+            text-align: center;
+            cursor: pointer;
+            letter-spacing: 0.5px; /* Add some letter spacing */
+        }
+
+        .about-blog .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        /* === Main CTA Button === */
+        .btn-blog {
+            background-color: #3A5795; /* Brighter Navy */
+            color: white;
+            border: 2px solid #3A5795;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .btn-blog:hover {
+            background-color: #4F6FAD; /* Lighter Navy on hover */
+            border-color: #4F6FAD;
+        }
+
+        /* === Social Outline Buttons === */
+        .btn-social {
+            background-color: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
+            min-width: 160px;
+        }
+
+        .btn-social:hover {
+            color: white;
+        }
+
+        .btn-social.twitter:hover {
+             background-color: #1DA1F2;
+             border-color: #1DA1F2;
+        }
+
+        .btn-social.note:hover {
+            background-color: #4CC764;
+            border-color: #4CC764;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero p {
+                font-size: 18px;
+            }
+            .about-blog {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>アクセスと収益を最大化する、<br>WordPressテーマ選びの決定版</h1>
+        <p>デザイン・SEO・使いやすさ。現役ブロガーが徹底比較した情報で、あなたのブログに最適なテーマが必ず見つかります。</p>
+    </section>
+
+    <main class="container">
+        <section id="themes" class="content-section">
+            <h2 class="section-title">WordPress Theme Guides</h2>
+
+            <h3 class="section-title" style="font-size: 28px; margin-top: 60px; margin-bottom: 40px;">総合・ランキング</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">25年度版｜WordPressブログの厳選人気テーマランキング｜初心者向け</h4>
+                        <a href="https://memoriesto-go.com/archives/theme-ranking.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-title" style="font-size: 28px; margin-top: 60px; margin-bottom: 40px;">THE THOR 特集</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">WordPressテーマ｜AFFINGER6とTHE THORを徹底比較!!</h4>
+                        <a href="https://memoriesto-go.com/archives/affinger6-thethor.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">ワードプレステーマ”THE THOR(トール)”の導入手順を初心者向けに徹底解説</h4>
+                        <a href="https://memoriesto-go.com/archives/thethor-introduction.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">【THE THOR】9つの特徴でブログ収益化を加速！人気の秘密は？</h4>
+                        <a href="https://memoriesto-go.com/archives/thethor-feature.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">WordPressテーマ”THE THOR(ザ トール)”を使って感じたメリット・デメリット</h4>
+                        <a href="https://memoriesto-go.com/archives/thethor_merit-demerit.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">THE THOR(トール)は驚異のSEO力を秘めたワードプレスブログテーマです!!</h4>
+                        <a href="https://memoriesto-go.com/archives/thethor-seo.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-title" style="font-size: 28px; margin-top: 60px; margin-bottom: 40px;">RE:DIVER 特集</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">RE:DIVER完全ガイド！ブログ収益化に特化した新世代WordPressテーマの魅力</h4>
+                        <a href="https://memoriesto-go.com/archives/rediver.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">【画像で解説】「RE:Diver」のインストールから初期設定までの完全ガイド</h4>
+                        <a href="https://memoriesto-go.com/archives/startrediver.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">【初心者向け】WordPressテーマ「RE:DIVER」とは？特徴とメリット・デメリットを徹底解説</h4>
+                        <a href="https://memoriesto-go.com/archives/rediverfeatures.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">「RE:Diver」は本当に稼げる？収益化を加速する5つの機能と具体的な使い方</h4>
+                        <a href="https://memoriesto-go.com/archives/redivermonetize.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-title" style="font-size: 28px; margin-top: 60px; margin-bottom: 40px;">その他人気テーマ</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">WordPressテーマ「GOLD BLOG」は買いか？SWELLと比較し本音で語る</h4>
+                        <a href="https://memoriesto-go.com/archives/goldblog.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">WordPressテーマ”STORK SE”の特徴と導入手順をブログ初心者向けに解説</h4>
+                        <a href="https://memoriesto-go.com/archives/storkse.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">ACTION PACK3(AFFINGER6EX版)でプロブロガーに!!|ブログ収益最大化を実現しよう!!</h4>
+                        <a href="https://memoriesto-go.com/archives/actionpack3.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-title" style="font-size: 28px; margin-top: 60px; margin-bottom: 40px;">XWRITE (by XSERVER)</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">エックスサーバーとXWRITEでWordPressブログを始める方法｜ブログ初心者の成功の近道</h4>
+                        <a href="https://memoriesto-go.com/archives/xserver-xwrite.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">WordPressブログテーマ”XWRITE”｜プロが教える特徴と導入の手順完全ガイド</h4>
+                        <a href="https://memoriesto-go.com/archives/xwrite.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <div class="container">
+        <section class="about-blog">
+            <img src="tatsurosaeki0810ppy様_アイコンイラスト_2-removebg-preview.png" alt="運営者アイコン" class="profile-icon">
+            <h2>About ウタカタブログ</h2>
+            <p>当ブログでは、今回ご紹介したWordPressテーマのレビュー以外にも、副業としてのブログ運営で収益を上げるためのノウハウや、日々の生活をちょっとお得にする「ポイ活」や「お金拾い」に関する情報を幅広く発信しています。あなたの新しい挑戦を応援するコンテンツがたくさんありますので、ぜひ他の記事もご覧ください。</p>
+            <div class="about-buttons">
+                <a href="https://memoriesto-go.com/" target="_blank" class="btn btn-blog">ブログトップへ</a>
+                <div class="social-buttons">
+                    <a href="https://x.com/utakatablog2" target="_blank" rel="noopener noreferrer" class="btn btn-social twitter">X (Twitter)</a>
+                    <a href="https://note.com/pecosan0810" target="_blank" rel="noopener noreferrer" class="btn btn-social note">note</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 <a href="https://memoriesto-go.com/" target="_blank" rel="noopener noreferrer" style="color: white;">ウタカタブログ</a>. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('click', function(event) {
+                    // Find the link inside the card
+                    const link = card.querySelector('a.card-button');
+                    if (link && link.href) {
+                        // If the click was not on the button itself, navigate
+                        if (!event.target.classList.contains('card-button')) {
+                            // Check if the link should open in a new tab
+                            if (link.target === '_blank') {
+                                window.open(link.href, '_blank', 'noopener,noreferrer');
+                            } else {
+                                window.location.href = link.href;
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
