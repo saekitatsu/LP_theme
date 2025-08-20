@@ -276,32 +276,48 @@
             .hero p {
                 font-size: 18px;
             }
+            .content-section {
+                padding: 30px 15px;
+            }
             .about-blog {
                 padding: 40px 20px;
             }
+
+            /* Card layout fix */
             .card, .card-content {
                 flex-direction: column;
-                align-items: stretch; /* Make items full-width */
+                align-items: stretch;
             }
 
             .card-title {
                 margin-right: 0;
                 margin-bottom: 20px;
+                padding-left: 0; /* Remove padding for symbol */
+                text-align: center; /* Center title on mobile */
+            }
+
+            .card-title::before {
+                display: none; /* Hide symbol on mobile */
             }
 
             .card-button {
+                flex-shrink: 1; /* Allow button to shrink/grow */
                 text-align: center;
+                width: 100%;
+                box-sizing: border-box;
             }
 
+            /* About buttons fix */
             .social-buttons {
                 flex-direction: column;
-                width: 100%; /* Make the container full-width */
-                align-items: stretch; /* Make buttons inside full-width */
+                width: 100%;
+                align-items: stretch;
             }
 
             .about-blog .btn-social {
-                width: 100%; /* Explicitly set width */
-                box-sizing: border-box; /* Ensure padding doesn't add to width */
+                min-width: 0; /* Reset min-width for mobile */
+                width: 100%;
+                box-sizing: border-box;
             }
         }
     </style>
