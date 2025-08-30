@@ -323,6 +323,13 @@
                 width: 100%;
                 box-sizing: border-box;
             }
+
+            .featured-badge {
+                top: -10px;
+                right: 10px;
+                font-size: 12px;
+                transform: rotate(5deg);
+            }
         }
 
         .featured-article {
@@ -347,6 +354,16 @@
             border: 2px solid #ffc107;
             padding: 20px;
             border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .featured-badge {
+                top: -10px;
+                right: 5px; /* Adjust position for smaller screens */
+                font-size: 12px; /* Slightly smaller font */
+                padding: 4px 8px;
+                transform: rotate(10deg); /* Less rotation */
+            }
         }
     </style>
 </head>
