@@ -112,20 +112,23 @@
             padding: 0;
             flex-grow: 1;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            flex-direction: column; /* Change to column */
+            align-items: center; /* Center items horizontally */
+            justify-content: center; /* Center items vertically */
         }
 
         .card-title {
             font-size: 18px;
             font-weight: 600;
             margin: 0;
-            margin-right: 20px;
+            margin-right: 0; /* Remove margin-right */
+            margin-bottom: 20px; /* Add margin-bottom */
             flex-grow: 1;
             color: #333;
             line-height: 1.6;
             position: relative;
             padding-left: 25px; /* Space for the symbol */
+            text-align: center; /* Center the title */
         }
 
         .card-title::before {
@@ -152,6 +155,7 @@
             transition: all 0.3s ease;
             margin: 0;
             flex-shrink: 0;
+            align-self: center; /* Center the button */
         }
 
         .card:hover .card-button {
@@ -320,6 +324,30 @@
                 box-sizing: border-box;
             }
         }
+
+        .featured-article {
+            position: relative;
+            overflow: visible; /* Ensure badge is not clipped */
+        }
+        .featured-badge {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            background-color: #ffc107; /* A nice gold color */
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            transform: rotate(15deg);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .featured-article-card {
+            background-color: #fffaf0; /* A light cream color */
+            border: 2px solid #ffc107;
+            padding: 20px;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -339,6 +367,44 @@
                     <div class="card-content">
                         <h4 class="card-title">25年度版｜WordPressブログの厳選人気テーマランキング｜初心者向け</h4>
                         <a href="https://memoriesto-go.com/archives/theme-ranking.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-title featured-article" style="font-size: 28px; margin-top: 60px; margin-bottom: 40px;">GOLDMEDIA 特集 <span class="featured-badge">注目の記事</span></h3>
+            <div class="card-grid featured-article-card">
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">【徹底レビュー】WordPressテーマ「ゴールドメディア」は買いか？</h4>
+                        <a href="https://memoriesto-go.com/archives/goldmedia.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-title" style="font-size: 28px; margin-top: 60px; margin-bottom: 40px;">RE:DIVER 特集</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">RE:DIVER完全ガイド！ブログ収益化に特化した新世代WordPressテーマの魅力</h4>
+                        <a href="https://memoriesto-go.com/archives/rediver.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">【画像で解説】「RE:Diver」のインストールから初期設定までの完全ガイド</h4>
+                        <a href="https://memoriesto-go.com/archives/startrediver.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">【初心者向け】WordPressテーマ「RE:DIVER」とは？特徴とメリット・デメリットを徹底解説</h4>
+                        <a href="https://memoriesto-go.com/archives/rediverfeatures.html" target="_blank" class="card-button">記事を読む →</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">「RE:Diver」は本当に稼げる？収益化を加速する5つの機能と具体的な使い方</h4>
+                        <a href="https://memoriesto-go.com/archives/redivermonetize.html" target="_blank" class="card-button">記事を読む →</a>
                     </div>
                 </div>
             </div>
@@ -377,34 +443,6 @@
                 </div>
             </div>
 
-            <h3 class="section-title" style="font-size: 28px; margin-top: 60px; margin-bottom: 40px;">RE:DIVER 特集</h3>
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-content">
-                        <h4 class="card-title">RE:DIVER完全ガイド！ブログ収益化に特化した新世代WordPressテーマの魅力</h4>
-                        <a href="https://memoriesto-go.com/archives/rediver.html" target="_blank" class="card-button">記事を読む →</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <h4 class="card-title">【画像で解説】「RE:Diver」のインストールから初期設定までの完全ガイド</h4>
-                        <a href="https://memoriesto-go.com/archives/startrediver.html" target="_blank" class="card-button">記事を読む →</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <h4 class="card-title">【初心者向け】WordPressテーマ「RE:DIVER」とは？特徴とメリット・デメリットを徹底解説</h4>
-                        <a href="https://memoriesto-go.com/archives/rediverfeatures.html" target="_blank" class="card-button">記事を読む →</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <h4 class="card-title">「RE:Diver」は本当に稼げる？収益化を加速する5つの機能と具体的な使い方</h4>
-                        <a href="https://memoriesto-go.com/archives/redivermonetize.html" target="_blank" class="card-button">記事を読む →</a>
-                    </div>
-                </div>
-            </div>
-
             <h3 class="section-title" style="font-size: 28px; margin-top: 60px; margin-bottom: 40px;">その他人気テーマ</h3>
             <div class="card-grid">
                 <div class="card">
@@ -427,7 +465,7 @@
                 </div>
             </div>
 
-            <h3 class="section-title" style="font-size: 28px; margin-top: 60px; margin-bottom: 40px;">XWRITE (by XSERVER)</h3>
+            <h3 class="section-title" style="font-size: 28px; margin-top: 60px; margin-bottom: 40px;">XWRITE (by XSERVER)特集</h3>
             <div class="card-grid">
                 <div class="card">
                     <div class="card-content">
